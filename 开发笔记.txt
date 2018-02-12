@@ -1,0 +1,66 @@
+1.安装相关环境
+	node >=8.9.0 ==8.9.4,
+	mysql >=5.7.20 ==5.7.21,
+	mysql-workbench >=6.3 ==6.3.10,
+	webstorm 2017.1 ==2017.2.2
+	
+2.webstorm 打开一个空文件夹doudizhu_diy，会自动开始建立空项目的
+	2.1在项目doudizhu_diy右键新建一个路径，命名为doudizhu_server，点击界面左下角的terminal切换到
+		命令行，在命令行中进入doudizhu_server，运行npm init 跟着提示走，包名版本默认，描述输入一些，
+		入口文件输入app.js即可，测试命令 输入 node app.js ，git路径、关键词、作者默认空，
+		授权默认ISC即可完成创建package.json配置文件；
+	2.2在doudizhu_server下新建js文件app.js文件，需要预安装依赖库，命令行执行
+		npm install socket.io --save,
+	2.3在app.js文件中开始实现服务端的启动功能，https://socket.io/docs/可以找到相关api，node app.js可以启动app脚本的，
+	    在server下的package.json文件中，scripts中新增一条"start":"node app.js"，则在命令行中执行node app.js 和npm start
+	    的效果相同，
+3.在creator中新建一个空白项目，路径跟服务端保持一致，对准路径为G:\doudizhu_diy\doudizhu_client\assets\..
+    3.1在资源管理器中先新建几个目录：scenes(先保存当前场景为mainScene.fire文件)、scripts(新建一个mainScenes的js文件)、
+        resources、prefabs，
+    3.2选中canvas，右边界面会出现属性检查器，拖动界面中的mainScenes.js文件到canvas的属性检查器，就可以添加并绑定组件了
+        在资源管理器中scripts文件夹中新建几个目录：gameScene lib mainScene,并把mainScene拖放到mainScene文件夹，将服务端
+        node_modules\socket.io-client\dist\socket.io.js文件拖放到lib文件夹中，（此时会报错，修复：双击lib\socket.io,
+        界面右边，勾选‘导入为插件’，接着点击右上角的绿色√按钮应用，然后点击控制台窗口中的红色清空按钮，即可取消报错）
+4.编辑doudizhu_client\assets\scripts\mainScene\mainScene.js文件，修改代码。
+
+==p1视频28:56，以下开始
+5.在creator中层级管理器中canvas创建一个ui-按钮节点，mainsence脚本里面新增代码，重命名按钮节点为 wxLogin，选中按钮，
+到属性检查器中修改click events的数量为1，将canvas节点拖动到[0]后面的节点框，右边为卖弄scenes和buttonclick，
+    5.1在doudizhu_diy\doudizhu_client\assets\scripts下新建全局脚本：global.js文件，global 是一个对象,在mainscene.js脚本
+    中添加导入代码，
+    5.2在scripts目录中新建一个data文件夹专门用处理数据，并在其中新建一个socket-controller.js脚本，输入相应代码，在需要
+    处理wxlogin时，在data目录中新建一个tianba.js player-data.js文件，
+
+===p2开始，p2 08:20
+6.在doudizhu_diy\doudizhu_server\utility\下新建一个js脚本：db.js,在doudizhu_diy\doudizhu_server\下新建一个config.json，
+    6.1打开mysqlworkbench,新建一个连接：连接名称用斗地主，链连接方式选TCP/IP，hostname和端口号是127.0.0.1 3306，用户名
+    是root，密码自己设置，测试链连接，别忘了事先在cmd执行mysql的启动命令mysqld.exe --install MySql --defaults-file="E:/program files/mysql/my-default.ini"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
